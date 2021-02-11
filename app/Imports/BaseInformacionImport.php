@@ -15,7 +15,10 @@ class BaseInformacionImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
-        return new ContenidoBaseInformacion([
+
+
+        return new ContenidoBaseInformacion([           
+
             //
             'llave_cruce' => $row['llave_cruce'],
             'campo_informacion' => $row['campo_informacion'],

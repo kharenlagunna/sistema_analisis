@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Excel;
 use App\Imports\BaseInformacionImport;
 use App\Models\BaseInformacion;
+use App\Models\r_base_contenido;
 
 
 class BasedeDatosController extends Controller
@@ -39,9 +40,15 @@ class BasedeDatosController extends Controller
         $baseinformacion->sector_industri_base = $request->get('sector_industri_base');
         $baseinformacion->save();
         
+        $ultimo_baseinformacion = $baseinformacion->id;
+        
+        $r_base_contenido = new r_base_contenido();
+        $r_base_contenido->base_informacion_id = $ultimo_baseinformacion;
+        $r_base_contenido->contenido_base_id = 1;
+        $r_base_contenido->save();
+        
         Excel::import(new BaseInformacionImport, $request->file);
-
-              
+       
         $baseinformaciones = BaseInformacion::all();
 
         return view('BasedeDatos.import-form')->with('message', "Ok")->with('baseinformaciones', $baseinformaciones);
