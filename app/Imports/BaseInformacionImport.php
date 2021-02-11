@@ -2,7 +2,7 @@
 
 namespace App\Imports;
 
-use App\Models\BaseInformacion;
+use App\Models\ContenidoBaseInformacion;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
@@ -15,11 +15,10 @@ class BaseInformacionImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
-        return new BaseInformacion([
+        return new ContenidoBaseInformacion([
             //
-            'nombre_base' => $row['nombre_base'],
-            'descripcion_base' => $row['descripcion_base'],
-            'sector_industri_base' => $row['sector_industri_base'],
+            'llave_cruce' => $row['llave_cruce'],
+            'campo_informacion' => $row['campo_informacion'],
         ]);
     }
 }

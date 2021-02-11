@@ -1,23 +1,44 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Base de Datos')
 
 @section('content_header')
-    <h1>Importar</h1>
+    <h1>Subir Bases</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
-        <form method="POST" enctype="multipart/form-data" action="{{ route('basededatos.import') }}">
-        @csrf
+       
+    <form method="POST" enctype="multipart/form-data" action="{{ route('basededatos.import') }}">
+            @csrf
 
-            <div class="form-group">
-                <label for="title">Archivo</label>
-                <input type="file" name="file" id= "file" class="form-control">
-                
-            </div>
-            <button type="submit" class="btn btn-primary">Subir </button>
-        </form>
+            <div class="container">
+                <div class="row g-3">
+                    <div class="col">
+                        <label>Nombre Base</label>
+                        <input id="nombre_base" name="nombre_base" type="text" class="form-control" tabindex="1" required>
+                    </div>
+                    <div class="col">
+                        <label>Descripcion Base</label>
+                        <input id="descripcion_base" name="descripcion_base" type="text" class="form-control" tabindex="1" required>
+                    </div>
+                    <div class="col">
+                        <label>Sector Industria Base</label>
+                        <input id="sector_industri_base" name="sector_industri_base" type="text" class="form-control" tabindex="1" required>
+                    </div>
+              
+                    <div class="input-group mb-3">
+                        <input class="form-control" name="file" type="file">
+                  
+                        <button type="submit" class="btn btn-outline-secondary">Subir </button>
+                    </div>  
+                </div>
+            
+                       
+      
+
+       
+    </form>
 
 @stop
 
