@@ -5,9 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Registro</div>
 
                 <div class="card-body">
+
+                    <div align="center"> 
+                        <img src="vendor/adminlte/dist/img/logo.png" width="180px" aling>
+                    </div><hr>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
