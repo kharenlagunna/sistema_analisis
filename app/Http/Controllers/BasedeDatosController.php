@@ -10,35 +10,28 @@ use App\Models\BaseInformacion;
 
 class BasedeDatosController extends Controller
 {
-    //
-
-   /*  public function index()
-    {
-        return view('BasedeDatos.index');
-    } */
-
+  
     public function importForm(){
 
-        return view('BasedeDatos.import-form');
+        $baseinformaciones = BaseInformacion::all();
+        return view('BasedeDatos.import-form')->with('baseinformaciones', $baseinformaciones);
     }
 
 
-    public function selectSearch(Request $request)
-    {
+    public function selectSearch(Request $request){
+
     	$baseinformacion = [];
 
         if($request->has('q')){
             $search = $request->q;
             $baseinformacion = BaseInformacion::select("id", "sector_industri_base")
             		->where('sector_industri_base', 'LIKE', "%$search%")
-            		->get();
+            		->get()->unique('sector_industri_base');
         }
         return response()->json($baseinformacion);
     }
 
     public function import(Request $request){
-
-       // dd($request);
 
         $baseinformacion = new BaseInformacion();
         $baseinformacion->nombre_base = $request->get('nombre_base');
@@ -48,7 +41,10 @@ class BasedeDatosController extends Controller
         
         Excel::import(new BaseInformacionImport, $request->file);
 
-        return view('BasedeDatos.import-form')->with('message', "Ok");
+              
+        $baseinformaciones = BaseInformacion::all();
+
+        return view('BasedeDatos.import-form')->with('message', "Ok")->with('baseinformaciones', $baseinformaciones);
 
     }
 }
