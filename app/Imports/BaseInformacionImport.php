@@ -20,5 +20,7 @@ class BaseInformacionImport implements ToModel, WithHeadingRow
             'llave_cruce' => $row['llave_cruce'],
             'campo_informacion' => $row['campo_informacion'],
         ]);
+
+      
     }
 }
