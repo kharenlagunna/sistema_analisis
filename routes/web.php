@@ -19,9 +19,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/import-form-base', [App\Http\Controllers\BasedeDatosController::class, 'importForm']);
 Route::post('/import', [App\Http\Controllers\BasedeDatosController::class, 'import'])->name('basededatos.import');
 
 
 Route::get('/import-form-homologacion', [App\Http\Controllers\TablaHomologacionController::class, 'importForm']);
+
+
+
+Route::resource('users', 'App\Http\Controllers\UsuarioController');

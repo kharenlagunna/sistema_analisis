@@ -238,7 +238,7 @@ return [
         ['header' => 'Bienvenido'],
         [
             'text' => 'Dashboard',
-            'url'  => 'admin/settings',
+            'url'  => 'dashboard',
             'icon' => 'fas fa-fw fa-tachometer-alt',
         ],
         [
@@ -253,7 +253,7 @@ return [
         ],
         [
             'text' => 'Control Usuarios',
-            'url'  => 'admin/settings',
+            'url'  => 'users',
             'icon' => 'fas fa-fw fa-user',
         ],
        
