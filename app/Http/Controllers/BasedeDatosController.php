@@ -22,7 +22,23 @@ class BasedeDatosController extends Controller
         return view('BasedeDatos.import-form');
     }
 
+
+    public function selectSearch(Request $request)
+    {
+    	$baseinformacion = [];
+
+        if($request->has('q')){
+            $search = $request->q;
+            $baseinformacion = BaseInformacion::select("id", "sector_industri_base")
+            		->where('sector_industri_base', 'LIKE', "%$search%")
+            		->get();
+        }
+        return response()->json($baseinformacion);
+    }
+
     public function import(Request $request){
+
+       // dd($request);
 
         $baseinformacion = new BaseInformacion();
         $baseinformacion->nombre_base = $request->get('nombre_base');
