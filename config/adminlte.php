@@ -243,12 +243,12 @@ return [
         ],
         [
             'text' => 'Bases de Datos',
-            'url'  => 'import-form',
+            'url'  => 'import-form-base',
             'icon' => 'fas fa-fw fa-database',
         ],
         [
             'text' => 'Tablas de Homologación',
-            'url'  => 'admin/settings',
+            'url'  => 'import-form-homologacion',
             'icon' => 'fas fa-fw fa-border-all',
         ],
         [
