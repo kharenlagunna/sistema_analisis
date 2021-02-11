@@ -243,7 +243,7 @@ return [
         ],
         [
             'text' => 'Bases de Datos',
-            'url'  => 'Bases',
+            'url'  => 'import-form',
             'icon' => 'fas fa-fw fa-database',
         ],
         [

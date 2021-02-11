@@ -20,4 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/Bases', [App\Http\Controllers\BasedeDatosController::class, 'index'])->name('base');
+Route::get('/import-form', [App\Http\Controllers\BasedeDatosController::class, 'importForm']);
+Route::post('/import', [App\Http\Controllers\BasedeDatosController::class, 'import'])->name('basededatos.import');
