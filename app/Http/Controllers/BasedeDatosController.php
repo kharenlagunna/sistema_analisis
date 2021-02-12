@@ -32,22 +32,16 @@ class BasedeDatosController extends Controller
         return response()->json($baseinformacion);
     }
 
-    public function import(Request $request){
+    public function import(Request $request)
+    {
 
-        $baseinformacion = new BaseInformacion();
-        $baseinformacion->nombre_base = $request->get('nombre_base');
-        $baseinformacion->descripcion_base = $request->get('descripcion_base');
-        $baseinformacion->sector_industri_base = $request->get('sector_industri_base');
-        $baseinformacion->save();
-        
-        $ultimo_baseinformacion = $baseinformacion->id;
-        
-        $r_base_contenido = new r_base_contenido();
-        $r_base_contenido->base_informacion_id = $ultimo_baseinformacion;
-        $r_base_contenido->contenido_base_id = 1;
-        $r_base_contenido->save();
-        
-        Excel::import(new BaseInformacionImport, $request->file);
+        $baseInformacion = new BaseInformacion();
+        $baseInformacion->nombre_base           = $request->nombre_base;
+        $baseInformacion->descripcion_base      = $request->descripcion_base;
+        $baseInformacion->sector_industri_base  = $request->sector_industri_base;
+        $baseInformacion->save();
+
+        Excel::import(new BaseInformacionImport($baseInformacion->id), $request->file);
        
         $baseinformaciones = BaseInformacion::all();
 
