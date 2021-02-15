@@ -7,6 +7,7 @@ use Excel;
 use App\Imports\BaseInformacionImport;
 use App\Models\BaseInformacion;
 use App\Models\r_base_contenido;
+use App\Models\r_usuario_base_informacion;
 
 
 class BasedeDatosController extends Controller
@@ -40,6 +41,8 @@ class BasedeDatosController extends Controller
         $baseInformacion->descripcion_base      = $request->descripcion_base;
         $baseInformacion->sector_industri_base  = $request->sector_industri_base;
         $baseInformacion->save();
+
+        $r_usuario_base_informacion = new r_usuario_base_informacion();
 
         Excel::import(new BaseInformacionImport($baseInformacion->id), $request->file);
        
