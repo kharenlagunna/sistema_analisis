@@ -7,7 +7,9 @@ use Excel;
 use App\Imports\BaseInformacionImport;
 use App\Models\BaseInformacion;
 use App\Models\r_base_contenido;
+use App\Models\User;
 use App\Models\r_usuario_base_informacion;
+use Illuminate\Support\Facades\Auth;
 
 
 class BasedeDatosController extends Controller
@@ -43,8 +45,11 @@ class BasedeDatosController extends Controller
         $baseInformacion->save();
 
         $r_usuario_base_informacion = new r_usuario_base_informacion();
+        $User = new User();
 
-       // dd($request->session()->all());
+        $r_usuario_base_informacion->usuario_id             = auth()->user()->id;
+        $r_usuario_base_informacion->base_informacion_id    = $baseInformacion->id;
+        $r_usuario_base_informacion->save();
 
         Excel::import(new BaseInformacionImport($baseInformacion->id), $request->file);
        
