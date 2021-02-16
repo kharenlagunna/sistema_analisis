@@ -22,15 +22,15 @@ class BasedeDatosController extends Controller
 
     public function selectSearch(Request $request){
 
-    	$baseinformacion = [];
+    	$baseinformacion_sector = [];
 
         if($request->has('q')){
             $search = $request->q;
-            $baseinformacion = BaseInformacion::select("id", "sector_industri_base")
+            $baseinformacion_sector = BaseInformacion::select("id", "sector_industri_base")
             		->where('sector_industri_base', 'LIKE', "%$search%")
             		->get()->unique('sector_industri_base');
         }
-        return response()->json($baseinformacion);
+        return response()->json($baseinformacion_sector);
     }
 
     public function import(Request $request)
@@ -43,6 +43,8 @@ class BasedeDatosController extends Controller
         $baseInformacion->save();
 
         $r_usuario_base_informacion = new r_usuario_base_informacion();
+
+       // dd($request->session()->all());
 
         Excel::import(new BaseInformacionImport($baseInformacion->id), $request->file);
        

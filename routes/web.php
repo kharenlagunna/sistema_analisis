@@ -26,12 +26,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/import-form-base', [App\Http\Controllers\BasedeDatosController::class, 'importForm']);
 Route::get('/ajax-autocomplete-search', [App\Http\Controllers\BasedeDatosController::class, 'selectSearch']);
-
 Route::post('/import', [App\Http\Controllers\BasedeDatosController::class, 'import'])->name('basededatos.import');
 
-
 Route::get('/import-form-homologacion', [App\Http\Controllers\TablaHomologacionController::class, 'importForm']);
-
+Route::get('/ajax-autocomplete-search-homologacion', [App\Http\Controllers\TablaHomologacionController::class, 'selectSearch']);
+Route::post('/import-homologacion', [App\Http\Controllers\TablaHomologacionController::class, 'import'])->name('tablahomologacion.import');
 
 
 Route::resource('users', 'App\Http\Controllers\UsuarioController');
