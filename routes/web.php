@@ -22,6 +22,8 @@ Auth::routes();
 
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
 
+Route::get('/analisis', [App\Http\Controllers\AnalisisController::class, 'index']);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/import-form-base', [App\Http\Controllers\BasedeDatosController::class, 'importForm']);

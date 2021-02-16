@@ -242,6 +242,11 @@ return [
             'icon' => 'fas fa-fw fa-tachometer-alt',
         ],
         [
+            'text' => 'Analisis',
+            'url'  => 'analisis',
+            'icon' => 'fas fa-fw fa-chart-area',
+        ],
+        [
             'text' => 'Bases de Datos',
             'url'  => 'import-form-base',
             'icon' => 'fas fa-fw fa-database',
