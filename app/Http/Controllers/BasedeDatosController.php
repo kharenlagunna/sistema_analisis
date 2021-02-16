@@ -9,7 +9,6 @@ use App\Models\BaseInformacion;
 use App\Models\r_base_contenido;
 use App\Models\User;
 use App\Models\r_usuario_base_informacion;
-use Illuminate\Support\Facades\Auth;
 
 
 class BasedeDatosController extends Controller
