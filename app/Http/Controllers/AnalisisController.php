@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\BaseInformacion;
 use App\Models\TablaHomologacion;
+use Illuminate\Support\Facades\DB;
+
 class AnalisisController extends Controller
 {
     //
@@ -19,6 +21,12 @@ class AnalisisController extends Controller
     }
 
     public function analisis(Request $request){
+    
+
+        $queryResult = DB::select('call sis_analisis.categoriza(?,?)',[$request->nombre_base,$request->tabla_homologacion]);
+
+        $result = collect($queryResult);
+        dd($result);    
 
         return view('Analisis.index');
 
