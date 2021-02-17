@@ -20,7 +20,7 @@ class AnalisisController extends Controller
 
     public function analisis(Request $request){
 
-        dd($request);
+        return view('Analisis.index');
 
     }
 }
