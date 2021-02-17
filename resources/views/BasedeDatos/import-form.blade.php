@@ -29,7 +29,7 @@
                     </div>
                     <div class="col">
                         <label>Sector Industria Base</label>
-                        <select class="sector_industri_base form-control p-3" name="sector_industri_base">
+                        <select class="sector_industri_base form-control" name="sector_industri_base">
                         <option selected="">Seleccione...</option>
                         @foreach($baseinformaciones as $base)
                             <option selected="{{$base->sector_industri_base}}">{{$base->sector_industri_base}}</option>

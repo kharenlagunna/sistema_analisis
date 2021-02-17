@@ -34,5 +34,6 @@ Route::get('/import-form-homologacion', [App\Http\Controllers\TablaHomologacionC
 Route::get('/ajax-autocomplete-search-homologacion', [App\Http\Controllers\TablaHomologacionController::class, 'selectSearch']);
 Route::post('/import-homologacion', [App\Http\Controllers\TablaHomologacionController::class, 'import'])->name('tablahomologacion.import');
 
+Route::post('/analisis', [App\Http\Controllers\AnalisisController::class, 'analisis'])->name('analisis');
 
 Route::resource('users', 'App\Http\Controllers\UsuarioController');
