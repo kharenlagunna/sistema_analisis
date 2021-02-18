@@ -94,42 +94,23 @@
      series: [{
          name: 'Brands',
          colorByPoint: true,
-         data: [{
-             name: 'Chrome',
-             y: 61.41,
-             sliced: true,
-             selected: true
-         }, {
-             name: 'Internet Explorer',
-             y: 11.84
-         }, {
-             name: 'Firefox',
-             y: 10.85
-         }, {
-             name: 'Edge',
-             y: 4.67
-         }, {
-             name: 'Safari',
-             y: 4.18
-         }, {
-             name: 'Sogou Explorer',
-             y: 1.64
-         }, {
-             name: 'Opera',
-             y: 1.6
-         }, {
-             name: 'QQ',
-             y: 1.2
-         }, {
-             name: 'Other',
-             y: 2.61
-         }]
+         data: [
+        ['Apples', 29.9, false],
+        ['Pears', 71.5, false],
+        ['Oranges', 106.4, false],
+        ['Plums', 129.2, false],
+        ['Bananas', 144.0, false],
+        ['Peaches', 176.0, false],
+        ['Prunes', 135.6, false],
+        ['Avocados', 2000, false]
+    ],
+    showInLegend: true
      }]
  });
 </script>
 <script>
-    var text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum erat ac justo sollicitudin, quis lacinia ligula fringilla. Pellentesque hendrerit, nisi vitae posuere condimentum, lectus urna accumsan libero, rutrum commodo mi lacus pretium erat. Phasellus pretium ultrices mi sed semper. Praesent ut tristique magna. Donec nisl tellus, sagittis ut tempus sit amet, consectetur eget erat. Sed ornare gravida lacinia. Curabitur iaculis metus purus, eget pretium est laoreet ut. Quisque tristique augue ac eros malesuada, vitae facilisis mauris sollicitudin. Mauris ac molestie nulla, vitae facilisis quam. Curabitur placerat ornare sem, in mattis purus posuere eget. Praesent non condimentum odio. Nunc aliquet, odio nec auctor congue, sapien justo dictum massa, nec fermentum massa sapien non tellus. Praesent luctus eros et nunc pretium hendrerit. In consequat et eros nec interdum. Ut neque dui, maximus id elit ac, consequat pretium tellus. Nullam vel accumsan lorem.';
-    var lines = text.split(/[,\. ]+/g),
+    var text = 'Fria ,Calor ,Calor ,Ciudad ,Sin Categoria ,Sin Categoria ,Ciudad ,Sin Categoria ,Sin Categoria ,Ciudad ,Sin Categoria ,Sin Categoria ,Ciudad ,Sin Categoria ,Sin Categoria ,Ciudad ,Sin Categoria ,Ciudad ,Sin Categoria ,Sin Categoria ,Sin Categoria ,Sin Ca...';
+    var lines = text.split(/[,\.]+/g),
     data = Highcharts.reduce(lines, function (arr, word) {
         var obj = Highcharts.find(arr, function (obj) {
             return obj.name === word;
